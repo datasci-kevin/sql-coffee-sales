@@ -1,13 +1,3 @@
-/*
-===============================================================================
-02 - Measure Exploration
-===============================================================================
-Purpose:
-    Calculate high-level business measures such as sales, quantity, orders,
-    products, and customers.
-===============================================================================
-*/
-
 -- Find the total Sales
 SELECT
 	SUM(sales) AS total_sales 
@@ -20,11 +10,10 @@ SELECT
 FROM
 	gold.fact_orders;
 
--- Find the average selling price
+-- Find the average order value
 SELECT
-	ROUND(AVG(sales), 2) AS average_order
-FROM
-	gold.fact_orders; -- returns me this number 45.140000 is that right as a number is that because of how we set up the number for it at the beginning.
+    ROUND(SUM(sales) / COUNT(DISTINCT order_id), 2) AS avg_order_value
+FROM gold.fact_orders;
 
 -- Find the total number of orders
 SELECT
@@ -40,4 +29,6 @@ SELECT 'Total Quantity', SUM(quantity) FROM gold.fact_orders
 UNION ALL
 SELECT 'Total Orders', COUNT(DISTINCT order_id) FROM gold.fact_orders
 UNION ALL
-SELECT 'Total Customers With Orders', COUNT(DISTINCT customer_key) FROM gold.fact_orders;
+SELECT 'Total Customers With Orders', COUNT(DISTINCT customer_key) FROM gold.fact_orders
+UNION ALL
+SELECT 'Average Order Value', ROUND(SUM(sales) / COUNT(DISTINCT order_id), 2) FROM gold.fact_orders;
