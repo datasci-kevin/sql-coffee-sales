@@ -20,6 +20,7 @@ SELECT
     coffee_type,
     roast_type,
     size,
+    size_category,
     unit_price,
     price_per_100g,
     profit
