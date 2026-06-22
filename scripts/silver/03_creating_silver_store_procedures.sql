@@ -48,19 +48,30 @@ BEGIN
         PRINT 'Loading silver.products table';
         TRUNCATE TABLE silver.products;
 
-        INSERT INTO silver.products (
-            product_id, coffee_type, roast_type, size,
-            unit_price, price_per_100g, profit
-        )
-        SELECT
-            TRIM(product_id),
-            TRIM(coffee_type),
-            TRIM(roast_type),
-            size,
-            unit_price,
-            price_per_100g,
-            profit
-        FROM bronze.products;
+        INSERT INTO silver.products (product_id, coffee_type, roast_type, size,
+        size_category, unit_price, price_per_100g, profit
+    )
+    SELECT
+        TRIM(product_id),
+        TRIM(coffee_type),
+        CASE
+            WHEN TRIM(roast_type) = 'L' THEN 'Light'
+            WHEN TRIM(roast_type) = 'M' THEN 'Medium'
+            WHEN TRIM(roast_type) = 'D' THEN 'Dark'
+            ELSE 'Unknown'
+        END AS roast_type,
+        size,
+        CASE
+            WHEN size = 0.20 THEN 'Small'
+            WHEN size = 0.50 THEN 'Medium'
+            WHEN size = 1.00 THEN 'Large'
+            WHEN size = 2.50 THEN 'Extra Large'
+            ELSE 'Unknown'
+        END AS size_category,
+        unit_price,
+        price_per_100g,
+        profit
+    FROM bronze.products;
 
         SET @end_time = GETDATE();
 
