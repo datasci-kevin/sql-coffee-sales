@@ -73,6 +73,7 @@ CREATE TABLE silver.products
     coffee_type     VARCHAR(30),
     roast_type      VARCHAR(15),
     size            DECIMAL(10,2),
+    size_category VARCHAR(20),
     unit_price      DECIMAL(10,2),
     price_per_100g  DECIMAL(10,2),
     profit          DECIMAL(10,2),
