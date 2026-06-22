@@ -34,6 +34,7 @@ INSERT INTO silver.products (
     coffee_type,
     roast_type,
     size,
+    size_category,
     unit_price,
     price_per_100g,
     profit
@@ -41,8 +42,20 @@ INSERT INTO silver.products (
 SELECT
     TRIM(product_id),
     TRIM(coffee_type),
-    TRIM(roast_type),
+    CASE
+        WHEN TRIM(roast_type) = 'L' THEN 'Light'
+        WHEN TRIM(roast_type) = 'M' THEN 'Medium'
+        WHEN TRIM(roast_type) = 'D' THEN 'Dark'
+        ELSE 'Unknown'
+    END AS roast_type,
     size,
+    CASE
+        WHEN size = 0.20 THEN 'Small'
+        WHEN size = 0.50 THEN 'Medium'
+        WHEN size = 1.00 THEN 'Large'
+        WHEN size = 2.50 THEN 'Extra Large'
+        ELSE 'Unknown'
+    END AS size_category,
     unit_price,
     price_per_100g,
     profit
@@ -67,10 +80,9 @@ SELECT
     TRIM(o.product_id),
     o.quantity,
     p.unit_price,
-    o.quantity * p.unit_price -- to insert into the total sales or sales column
+    o.quantity * p.unit_price
 FROM bronze.orders o
 LEFT JOIN bronze.products p
     ON o.product_id = p.product_id;
-
 
 
