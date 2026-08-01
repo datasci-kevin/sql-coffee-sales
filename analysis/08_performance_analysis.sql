@@ -1,4 +1,3 @@
-```sql
 USE CoffeeSales;
 GO
 
