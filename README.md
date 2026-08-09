@@ -235,25 +235,25 @@ Business-ready dimensional model including:
 
 ## Executive Dashboard
 
-![Executive Dashboard](powerbi/executive_dashboard.png)
+![Executive Dashboard](Powerbi/executive_dashboard.png)
 
 ---
 
 ## Customer Analysis
 
-![Customer Analysis](powerbi/customer_analysis.png)
+![Customer Analysis](Powerbi/customer_analysis.png)
 
 ---
 
 ## Product Analysis
 
-![Product Analysis](powerbi/product_analysis.png)
+![Product Analysis](Powerbi/product_analysis.png)
 
 ---
 
 ## Dashboard Demo
 
-![Dashboard Demo](powerbi/powerbi_dashboard_demo01.gif)
+![Dashboard Demo](Powerbi/powerbi_dashboard_demo01.gif)
 
 # 🚀 Key Takeaways
 
