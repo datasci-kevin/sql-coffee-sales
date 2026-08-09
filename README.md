@@ -233,6 +233,28 @@ Business-ready dimensional model including:
 
 ---
 
+## Executive Dashboard
+
+![Executive Dashboard](powerbi/executive_dashboard.png)
+
+---
+
+## Customer Analysis
+
+![Customer Analysis](powerbi/customer_analysis.png)
+
+---
+
+## Product Analysis
+
+![Product Analysis](powerbi/product_analysis.png)
+
+---
+
+## Dashboard Demo
+
+![Dashboard Demo](powerbi/powerbi_dashboard_demo01.gif)
+
 # 🚀 Key Takeaways
 
 This project simulates the workflow of a Business Intelligence Analyst by combining data engineering, SQL analytics, and dashboard development into a complete reporting solution.
